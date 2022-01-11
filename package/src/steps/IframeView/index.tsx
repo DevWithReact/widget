@@ -17,7 +17,8 @@ import {
 import { NavContext } from "../../NavContext";
 import { t } from "i18next";
 
-const btcdirectFinishedOrigin = "https://btcdirect.sandbox.staging.onramper.tech";
+const btcdirectFinishedOrigin =
+  "https://btcdirect.sandbox.staging.onramper.tech";
 
 const IframeView: React.FC<{
   nextStep: NextStep & { type: "iframe" | "redirect" };
@@ -46,7 +47,14 @@ const IframeView: React.FC<{
     const receiveMessage = async (event: MessageEvent) => {
       console.log("Received new event", event);
       console.log(event.origin);
-      if (![baseCreditCardSandboxUrl, btcdirectFinishedOrigin, event.origin].includes(event.origin)) return;
+      if (
+        ![
+          baseCreditCardSandboxUrl,
+          btcdirectFinishedOrigin,
+          event.origin,
+        ].includes(event.origin)
+      )
+        return;
       if (event.data.type === "INIT") {
         setError(undefined);
         setFatalError(undefined);
@@ -56,7 +64,6 @@ const IframeView: React.FC<{
         message: `Received a postMessage from ${event.origin}`,
         data: event.data,
       });
-
       if (event.data.gateway === "Moonpay") {
         let returnedNextStep: any; //: NextStep;
         try {
@@ -89,12 +96,21 @@ const IframeView: React.FC<{
       } else if (typeof event.data === "string") {
         reportError(event.data, false, event.data);
       } else {
-        reportError(
+        /**
+         * do nothing, metamask triggers this Unknown error via this event
+         * data:
+            data: {method: 'metamask_chainChanged', params: {…}}
+            name: "metamask-provider"
+            [[Prototype]]: Object
+            target: "metamask-inpage"
+            [[Prototype]]: Object
+         */
+        /* reportError(
           "Unknow error. Please, contact help@onramper.com and provide the following info: " +
             nextStep.url,
           false,
           event.data
-        );
+        ); */
       }
     };
     window.addEventListener("message", receiveMessage);
@@ -104,7 +120,7 @@ const IframeView: React.FC<{
   return (
     <div className={styles.view}>
       <Header
-        title={nextStep.humanName ?? t('miscViews.completePayment')}
+        title={nextStep.humanName ?? t("miscViews.completePayment")}
         hideBurgerButton={nextStep.type === "iframe" && nextStep.fullscreen}
         backButton
       />
