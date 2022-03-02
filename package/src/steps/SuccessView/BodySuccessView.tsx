@@ -9,6 +9,11 @@ import BuyCryptoView from "../../BuyCryptoView";
 import { ReactComponent as TICK_GREEN } from "../../icons/success_green.svg";
 import { ReactComponent as TICK_BLUE } from "../../icons/success_blue.svg";
 
+const handleRedirect = (url: string | undefined) => {
+  window.open(url, "_parent")
+  window.redirectURL?.postMessage(url);
+};
+
 type BodySuccessViewType = {
   txType: "instant" | "pending";
   trackingURL?: string;
@@ -68,7 +73,7 @@ const BodySuccessView: React.FC<BodySuccessViewType> = (props) => {
         <button
           onClick={
             collected.redirectURL
-              ? () => window.open(collected.redirectURL, "_parent")
+              ? () => handleRedirect(collected.redirectURL)
               : () => onlyScreen(<BuyCryptoView />)
           }
           className={`${styles["button--basic"]} ${

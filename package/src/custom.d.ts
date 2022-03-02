@@ -36,4 +36,7 @@ interface Window {
         isImToken: boolean
     }
     | undefined;
+    redirectURL: 
+    | { postMessage: Function } 
+    | undefined;
 }
