@@ -7,6 +7,7 @@
     font-size: 1rem;
     margin: auto var(--padding-rl);
     width: 100%;
+    color: white;
 }
 
 .block > span+span,

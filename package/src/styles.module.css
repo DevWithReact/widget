@@ -11,7 +11,8 @@ theme styles
     --min-height: 1rem;
     --width: 100%;
     --heigth: 100%;
-    --background-color: white;
+    /* --background-color: white; */
+    --background-color: #021120; /*0926*/
     --padding-top: 1.75rem;
     --padding-rl: 1.88rem;
     --padding-bottom: 1.125rem;

@@ -19,6 +19,7 @@
     border-color: var(--boorder-option-container-color);
 
     padding: 1.25rem 0px;
+    border: none; /*0926*/
 }
 
 .option-container__radio {
@@ -74,6 +75,7 @@
     --collapsable-height: 3rem;
     /* margin-bottom: 0.6rem;  *//*margined to align with crypto-diff*/
     transition: margin-right 2200ms cubic-bezier(0.4, 0, 1, 1);
+    color: white; /*0926*/
 }
 
 .content__info .collapsable-section {
@@ -116,6 +118,7 @@ max-width: 100%;
     font-size: 1rem;
     margin-left: 0.5rem;
     letter-spacing: 0.01em;
+    color: white; /*0926*/
 }
 
 .content__price > :last-child {
@@ -140,6 +143,7 @@ max-width: 100%;
     grid-template-columns: fit-content(25%) auto;
 
     letter-spacing: 0.03em;
+    color: white; /*0926*/
 }
 
 .details__item + .details__item {
@@ -240,6 +244,7 @@ max-width: 100%;
 
 .receive-amount {
     white-space: nowrap;
+    color: white; /*0926*/
 }
 
 /*gateway collapsed*/
@@ -301,6 +306,8 @@ max-width: 100%;
     letter-spacing: 0;   
     font-size: 0.75rem;
     margin-left: 0.6875rem;
+    color: white; /*0926*/
+    opacity: 0.5;
 }
 
 .option-container--option {
@@ -312,6 +319,8 @@ max-width: 100%;
     letter-spacing: 0;   
     font-size: 0.75rem;
     margin-left: 0.6875rem;
+    color: white; /*0926*/
+    opacity: 0.5;
 }
 
 @media (max-width: 360px) {

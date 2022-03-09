@@ -78,7 +78,7 @@ const OnramperWidget: React.FC<OnramperWidgetProps> = (props) => {
             <div style={{ flexGrow: 1, display: "flex" }}>
               <NavContainer home={<BuyCryptoView />} />
             </div>
-            <Footer />
+            {/* <Footer /> */}
           </APIProvider>
         </NavProvider>
       </ErrorBoundary>
